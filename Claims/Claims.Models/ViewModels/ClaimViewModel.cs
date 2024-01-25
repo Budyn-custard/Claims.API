@@ -10,10 +10,6 @@ namespace Claims.Models.ViewModels
 {
     public class ClaimViewModel
     {
-        public ClaimViewModel()
-        {
-            AgeDays = (DateTime.Now - ClaimDate).Days;
-        }
         public string UCR { get; set; }
         public int CompanyId { get; set; }
         public DateTime ClaimDate { get; set; }
@@ -23,7 +19,7 @@ namespace Claims.Models.ViewModels
 
         public bool Closed { get; set; }
         public int ClaimTypeId { get; set; }
-        public int AgeDays { get; private  set; }
+        public int AgeDays => (DateTime.Now - ClaimDate).Days;
         public ClaimTypeViewModel ClaimType { get; set; }
         public CompanyViewModel Company { get; set; }
     }
